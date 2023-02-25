@@ -1,0 +1,63 @@
+/**
+* Nav Menu
+*/
+
+.nav {
+  padding: 1em 0;
+
+  a {
+    position: relative;
+    color: $black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-svg {
+    width: 80px; // 8%
+    margin-right: .5em;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(10px);
+
+    span:first-child {
+      font-family: "Righteous", sans-serif;
+      font-size: 3.25em;
+      font-weight:400;
+      letter-spacing: -1px;
+    }
+    span:last-child {
+      font-size:1.25em;
+      font-weight:400;
+      text-transform:uppercase;
+      letter-spacing: 4.5px;
+      color: #757575;
+      transform: translateY(-10px) translateX(6px);
+    }
+  }
+}
+
+.logo:focus .logo-text::after,
+.logo:hover .logo-text::after {
+  display: block;
+  content: "";
+  height: 14px; // 5px
+  width: 200px;
+  position: absolute;
+  bottom: 36px;
+  background: url("/i/wave.svg");
+  background-size: 25px 17px; // 19px 11px
+  animation: move 15s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    background-position: 2px 19px;
+  }
+
+  100% {
+    background-position: 500px 19px;
+  }
+}

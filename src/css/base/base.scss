@@ -1,0 +1,17 @@
+body {
+	@include m-4;
+	margin: 0 auto;
+	max-width: 80em;
+	width: 88%;
+	background-color: $beige;
+}
+
+
+/**
+* Responsive images
+*/
+
+img {
+	height: auto;
+	max-width: 100%;
+}

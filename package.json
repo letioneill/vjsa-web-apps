@@ -1,0 +1,35 @@
+{
+  "name": "gulp-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leti O'Neill",
+  "license": "ISC",
+  "vars": {
+    "name": "Leti O'Neill"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "ie >= 10"
+  ],
+  "devDependencies": {
+    "autoprefixer": "9.6.1",
+    "gulp": "4.0.2",
+    "gulp-concat-multi": "1.0.1",
+    "gulp-cssnano": "2.1.3",
+    "gulp-postcss": "8.0.0",
+    "gulp-sass": "4.0.2",
+    "gulp-sass-glob": "1.1.0",
+    "gulp-svg-sprite": "1.5.0",
+    "postcss-pxtorem": "4.0.1",
+    "postcss-unmq": "1.0.2",
+    "what-input": "5.2.3"
+  },
+  "css": [
+    "src/css/styles.scss"
+  ]
+}
