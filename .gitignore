@@ -25,3 +25,7 @@ node_modules
 ehthumbs.db
 Thumbs.db
 Icon?
+
+# Misc #
+######################
+/_builder/

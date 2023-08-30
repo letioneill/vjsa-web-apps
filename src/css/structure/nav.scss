@@ -39,8 +39,7 @@
   }
 }
 
-.logo:focus .logo-text::after,
-.logo:hover .logo-text::after {
+.logo .logo-text::after {
   display: block;
   content: "";
   height: 14px; // 5px
@@ -49,7 +48,14 @@
   bottom: 36px;
   background: url("i/wave.svg");
   background-size: 25px 17px; // 19px 11px
-  animation: move 15s linear infinite;
+  opacity: 0;
+  animation: move 10s linear infinite;
+  transition: opacity .25s ease;
+}
+
+.logo:focus .logo-text::after,
+.logo:hover .logo-text::after {
+  opacity: 1;
 }
 
 @keyframes move {
