@@ -1,3 +1,5 @@
+import { getPhotos } from "./components/api.js";
+
 // Get the #app element
 let app = document.querySelector('#app');
 
@@ -77,13 +79,14 @@ function photoPage (photos, pageId) {
  * @return {String}        A list of available photos
  */
 function photoGallery (photos) {
-
+  console.log("photoGallery: 1");
   // If there are no photos
   if (!photos || !photos.length) {
     app.innerHTML =
       "<p>There are no available photos at this time. Please try again later. Sorry!</p>";
   }
 
+  console.log("photoGallery: 2");
   // Otherwise, show photos
   app.innerHTML = `
     <p>High-end photography from the Seven Seas, brought to you by world-famous photographer Captain Jack Sparrow.</p>
@@ -105,22 +108,6 @@ function photoGallery (photos) {
 
 }
 
-/**
- * Fetch photos from the API
- */
-async function getPhotos () {
-  try {
-    let response = await fetch('https://vanillajsacademy.com/api/photos.json');
-    if (!response.ok) throw response;
-    let photos = await response.json();
-    photoHTML(photos);
-    console.log("1. getPhotos");
-  } catch (error) {
-    console.warn(error);
-    app.innerHTML = noPhotoData();
-  }
-}
-
 function photoHTML(photos) {
   const pageId = getPhotoID();
   if (pageId) {
@@ -132,4 +119,6 @@ function photoHTML(photos) {
 }
 
 // Initialize
-getPhotos();
+getPhotos().then(function (photos) {
+  photoHTML(photos);
+});
