@@ -79,14 +79,12 @@ function photoPage (photos, pageId) {
  * @return {String}        A list of available photos
  */
 function photoGallery (photos) {
-  console.log("photoGallery: 1");
   // If there are no photos
   if (!photos || !photos.length) {
     app.innerHTML =
       "<p>There are no available photos at this time. Please try again later. Sorry!</p>";
   }
 
-  console.log("photoGallery: 2");
   // Otherwise, show photos
   app.innerHTML = `
     <p>High-end photography from the Seven Seas, brought to you by world-famous photographer Captain Jack Sparrow.</p>
@@ -114,7 +112,6 @@ function photoHTML(photos) {
     photoPage(photos, pageId);
   } else {
     photoGallery(photos);
-    console.log ("2. photoHTML");
   }
 }
 
