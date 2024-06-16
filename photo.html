@@ -19,6 +19,9 @@
 					<span>Photography</span>
 				</span>
 			</a>
+			<div class="nav-items">
+				<span aria-hidden="true">&#x1f6d2;</span> Cart <span id="cart-count"></span>
+			</div>
 		</nav>
 
 		<!-- <h1>Sparrow Photography</h1> -->
@@ -32,12 +35,9 @@
 
 
 		<script  type="module">
-			import { render } from "https://cdn.jsdelivr.net/npm/reefjs@12/dist/reef.es.min.js";
+			import { component } from "https://cdn.jsdelivr.net/npm/reefjs@12/dist/reef.es.min.js";
 			import { getPhotos } from "./components/api.js";
 			import { addToCart, inCart } from "./components/cart.js";
-
-			// Get the #app element
-			let app = document.querySelector("#app");
 
 			// Hold the photo data
 			let photos = [];
@@ -119,14 +119,12 @@
 				// Add photo to cart
 				addToCart(id);
 
-				// Update the UI
-				render(app, photoHTML());
 			}
 
 			// Initialize
 			getPhotos().then(function (data) {
 				photos = data;
-				render(app, photoHTML());
+				component('#app', photoHTML);
 				document.addEventListener('click', clickHandler);
 			});
 		</script>

@@ -19,6 +19,9 @@
 					<span>Photography</span>
 				</span>
 			</a>
+			<div class="nav-items">
+				<span aria-hidden="true">&#x1f6d2;</span> Cart <span id="cart-count"></span>
+			</div>
 		</nav>
 
 		<!-- <h1>Sparrow Photography</h1> -->
@@ -34,6 +37,7 @@
 		<script type="module">
 			import { render } from "https://cdn.jsdelivr.net/npm/reefjs@12/dist/reef.es.min.js";
 			import { getPhotos } from "./components/api.js";
+			import "./components/cart.js";
 
 			// Get the #app element
 			let app = document.querySelector("#app");
@@ -43,7 +47,7 @@
 		 * @param  {Object} photos The photo data
 		 * @return {String}        A list of available photos
 		 */
-			function photoGallery(photos) {
+			function photoHTML(photos) {
 				// If there are no photos
 				if (!photos || !photos.length) {
 					return "<p>There are no available photos at this time. Please try again later. Sorry!</p>";
@@ -70,7 +74,7 @@
 
 			// Initialize
 			getPhotos().then(function (photos) {
-				render(app, photoGallery(photos));
+				render(app, photoHTML(photos));
 			});
 		</script>
 

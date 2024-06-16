@@ -3,6 +3,11 @@
 */
 
 .nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap:1em;
   padding: 1em 0;
 
   a {
@@ -36,6 +41,10 @@
       color: #757575;
       transform: translateY(-10px) translateX(6px);
     }
+  }
+
+  &-items {
+    text-align: right;
   }
 }
 
