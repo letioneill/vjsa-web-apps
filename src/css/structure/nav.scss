@@ -35,7 +35,7 @@
       font-weight:400;
       text-transform:uppercase;
       letter-spacing: 4.5px;
-      color: #757575;
+      color: $gray_55;
       transform: translateY(-10px) translateX(6px);
     }
   }
@@ -58,9 +58,9 @@
   height: 30px;
   font-size: .85em;
   font-weight: 800;
-  color: #333;
+  color: $gray_80;
   text-align: center;
-  background-color: #f3cc91;
+  background-color: $peach;
   border-radius: 50%;
 }
 

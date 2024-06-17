@@ -31,11 +31,11 @@
 */
 
 .photo {
-  border: 1px solid #10162F;
+  border: 1px solid $charcoal;
   padding: .5em;
   background-color: $white;
   border-radius: 2px;
-  box-shadow: 0px 0px 0 #e8e8e8;
+  box-shadow: 0px 0px 0 $gray_10;
   transition: box-shadow 200ms ease, transform 200ms ease;
 
   &:hover {
@@ -43,7 +43,7 @@
       -moz-transform: translate(4px, -4px);
       -ms-transform: translate(4px, -4px);
       transform: translate(4px, -4px);
-      box-shadow: -8px 8px 0 #10162F;
+      box-shadow: -8px 8px 0 $charcoal;
 
       img {
         filter: saturate(1);
@@ -63,7 +63,7 @@
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    color: black;
+    color: $black;
   }
 
   img {

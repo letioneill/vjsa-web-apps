@@ -11,17 +11,17 @@
   }
 
   button {
-    color: #000;
+    color: $black;
     padding: 1em;
-    border: 1.5px solid #000;
+    border: 1.5px solid $black;
     border-radius: .25em;
-    background-color: #d96d1d;
+    background-color: $yam;
     transition: box-shadow .2s ease, transform .2s ease;
     cursor: pointer;
 
     &:hover, &:focus {
       transform: translate(4px, -4px);
-      box-shadow: -6px 6px 0 #10162f;
+      box-shadow: -6px 6px 0 $charcoal;
     }
   }
 }
@@ -29,9 +29,9 @@
 .photo-info img {
   width: 100%;
   padding: .5em;
-  border: 1.5px solid #000;
-  background-color: #fff;
-  box-shadow: -6px 6px 0 #10162f;
+  border: 1.5px solid $black;
+  background-color: $white;
+  box-shadow: -6px 6px 0 $charcoal;
 
   @media #{$min_md} {
     // width: 60%;
