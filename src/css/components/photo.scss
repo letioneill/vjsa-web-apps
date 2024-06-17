@@ -34,7 +34,9 @@
   box-shadow: -6px 6px 0 #10162f;
 
   @media #{$min_md} {
-    width: 60%;
+    // width: 60%;
+    height: fit-content;
+    flex: 1 1 60%;
   }
 }
 
@@ -42,6 +44,7 @@
   padding: 3em 0;
 
   @media #{$min_md} {
+    flex: 1 1 40%;
     padding: 3em 1em 3em 3em;
   }
 
