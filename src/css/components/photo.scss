@@ -4,16 +4,46 @@
 
 .photo-info {
   display: flex;
+  flex-direction: column;
+
+  @media #{$min_md} {
+    flex-direction: row;
+  }
+
+  button {
+    color: #000;
+    padding: 1em;
+    border: 1.5px solid #000;
+    border-radius: .25em;
+    background-color: #d96d1d;
+    transition: box-shadow .2s ease, transform .2s ease;
+    cursor: pointer;
+
+    &:hover, &:focus {
+      transform: translate(4px, -4px);
+      box-shadow: -6px 6px 0 #10162f;
+    }
+  }
 }
 
 .photo-info img {
   width: 100%;
-  flex: 0 0 60%;
+  padding: .5em;
+  border: 1.5px solid #000;
+  background-color: #fff;
+  box-shadow: -6px 6px 0 #10162f;
+
+  @media #{$min_md} {
+    width: 60%;
+  }
 }
 
 .photo-desc {
-  padding: 3em 1em;
-  flex: 0 0 40%;
+  padding: 3em 0;
+
+  @media #{$min_md} {
+    padding: 3em 1em 3em 3em;
+  }
 
   h1 {
     @include hg-7;

@@ -3,11 +3,8 @@
 */
 
 .nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0;
-  grid-row-gap:1em;
+  display: flex;
+  justify-content: space-between;
   padding: 1em 0;
 
   a {
@@ -44,8 +41,27 @@
   }
 
   &-items {
-    text-align: right;
+    display:flex;
   }
+}
+
+.cart {
+  padding-right: .25em;
+}
+
+#cart-count {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: .85em;
+  font-weight: 800;
+  color: #333;
+  text-align: center;
+  background-color: #f3cc91;
+  border-radius: 50%;
 }
 
 .logo .logo-text::after {

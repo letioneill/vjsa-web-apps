@@ -35,7 +35,7 @@ function inCart (id) {
  * @return {String} The cart count HTML string
  */
 function cartCountHTML () {
-  return `(${Object.keys(cart).length})`;
+  return `${Object.keys(cart).length}`;
 }
 
 // Create cart count component
