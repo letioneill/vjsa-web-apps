@@ -36,19 +36,23 @@
 
 
 		<script type="module">
-			import { render } from "https://cdn.jsdelivr.net/npm/reefjs@12/dist/reef.es.min.js";
+			import { store, component } from "https://cdn.jsdelivr.net/npm/reefjs@12/dist/reef.es.min.js";
 			import { getPhotos } from "./components/api.js";
-			import {inCart} from "./components/cart.js";
+			import {removeFromCart, inCart} from "./components/cart.js";
+			import { getPhotoByID } from "./components/utilities.js";
 
-			// Get the #app element
-			let app = document.querySelector("#app");
+			// Hold the photo data
+			let photos = [];
+
+			// Current status
+			let status = store([]);
 
 			/**
 		 * Generate the cart HTML
 		 * @param  {Array} photos The photo data
 		 * @return {String}  The cart HTML string
 		 */
-			function cartHTML(photos) {
+			function cartHTML() {
 
 				// Get the photos that are in the cart
 				let photosInCart = photos.filter(function (photo) {
@@ -67,7 +71,8 @@
 							<tr>
 								<th width="150">Photo</th>
 								<th>Name</th>
-								<th class="text-right">Price</th>
+								<th>Price</th>
+								<th class="text-right">Remove Item</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -76,7 +81,12 @@
 								<tr>
 									<td><img alt="${photo.description}" src="${photo.url}"></td>
 									<td>${photo.name}</td>
-									<td class="text-right">$${photo.price}</td>
+									<td>$${photo.price}</td>
+									<td class="text-right">
+										<button data-remove-from-cart="${photo.id}" aria-label="Remove '${photo.name}'">
+											&#10006;
+										</button>
+									</td>
 								</tr>`;
 						}).join("")}
 					</tbody>
@@ -85,12 +95,41 @@
 					<strong>Total:</strong> $${photosInCart.reduce(function (total, photo) {
 						return total + photo.price;
 					}, 0)}
-				</p>`;
+				</p>
+				<div aria-live="polite">${status.join('<br>')}</div>`;
+			}
+
+			/**
+			 * Handle click events
+			 * @param  {Event} event The event object
+			 */
+			function clickHandler (event) {
+
+				// Get the photo ID
+				let id = event.target.getAttribute('data-remove-from-cart');
+				if (!id) return;
+
+				// Remove the item from the cart
+				removeFromCart(id);
+
+				// Get the photo details
+				let photo = getPhotoByID(photos, id);
+				if (!photo) return;
+
+				// Update the status message
+				let msg = `"${photo.name}" was removed from your cart.`;
+				status.push(msg);
+				setTimeout(function () {
+					status.splice(status.indexOf(msg), 1);
+				}, 3000);
+
 			}
 
 			// Initialize
-			getPhotos().then(function (photos) {
-				render(app, cartHTML(photos));
+			getPhotos().then(function (data) {
+				photos = data;
+				component('#app', cartHTML);
+				document.addEventListener('click', clickHandler);
 			});
 		</script>
 

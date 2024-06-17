@@ -13,6 +13,15 @@ function addToCart(id) {
 }
 
 /**
+ * Remove a photo from the cart
+ * @param  {String} id The photo ID
+ */
+function removeFromCart (id) {
+	delete cart[id];
+	localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+/**
  * Check if an item is in the cart
  * @param {String} id The Photo ID
  * @return {Boolean} If true, the item is in the cart
@@ -32,4 +41,4 @@ function cartCountHTML () {
 // Create cart count component
 component('#cart-count', cartCountHTML);
 
-export { addToCart, inCart };
+export { addToCart, removeFromCart, inCart };
