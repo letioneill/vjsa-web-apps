@@ -10,8 +10,8 @@
 table {
   border: 1px solid $black;
   border-spacing: 0;
-  margin-bottom: 1em;
-  max-width: 100%;
+  margin: 0 auto 1em;
+  max-width: 900px;
   width: 100%;
 }
 
@@ -59,7 +59,7 @@ td img {
 }
 
 /**
- * Removal Messages
+ * Removal Alerts
  */
 
 .alert {
@@ -68,6 +68,22 @@ td img {
   border: 1px solid #7f9a8d;
   border-radius: 4px;
   background-color: rgba($teal, 0.25);
-  // animation: fade-up
-  // transition: transform .14s ease, opacity .25s;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp ease-out 4.15s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
