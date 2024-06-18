@@ -59,4 +59,12 @@
     padding: 1em 0;
   }
 
+  em {
+    display:inline-block;
+    width: fit-content;
+    background-color: $tan2;
+    padding: 1em;
+    border-radius: 6px;
+  }
+
 }

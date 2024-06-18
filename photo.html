@@ -90,7 +90,7 @@
 							<p aria-live="polite">
 								${
 										inCart(photo.id) ?
-										`<em>"${photo.name}" added to cart</em>` : `<button data-add-to-cart="${photo.id}">Add to Cart - $${photo.price}</button>`
+										`<em><strong>${photo.name}</strong> added to cart</em>` : `<button data-add-to-cart="${photo.id}">Add to Cart - $${photo.price}</button>`
 								}
 							</p>
 						</div>
