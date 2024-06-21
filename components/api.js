@@ -1,3 +1,6 @@
+// The API Endpoint
+let endpoint = 'https://web-apps-serverless.letioneill.workers.dev';
+
 /**
  * Save photos to session storage
  * @param {Array} photos The photo date
@@ -27,7 +30,7 @@ async function getPhotos() {
 
   // Otherwise, fetch fresh data from the API
   try {
-    let response = await fetch("https://vanillajsacademy.com/api/photos.json");
+    let response = await fetch(endpoint);
     if (!response.ok) throw response;
     let photos = await response.json();
     savePhotos(photos);
