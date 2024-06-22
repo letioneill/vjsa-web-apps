@@ -1,5 +1,5 @@
 // The API Endpoint
-let endpoint = 'https://web-apps-serverless.letioneill.workers.dev';
+import { photosURL } from "./endpoints.js";
 
 /**
  * Save photos to session storage
@@ -30,7 +30,7 @@ async function getPhotos() {
 
   // Otherwise, fetch fresh data from the API
   try {
-    let response = await fetch(endpoint);
+    let response = await fetch(photosURL);
     if (!response.ok) throw response;
     let photos = await response.json();
     savePhotos(photos);

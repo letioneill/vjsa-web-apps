@@ -48,9 +48,6 @@
 			import { getPhotos } from "./components/api.js";
 			import "./components/cart.js";
 
-			// Get the #app element
-			let app = document.querySelector("#app");
-
 			/**
 		 * Generate an HTML of available photos
 		 * @param  {Object} photos The photo data
@@ -83,7 +80,7 @@
 
 			// Initialize
 			getPhotos().then(function (photos) {
-				render(app, photoHTML(photos));
+				render('#app', photoHTML(photos));
 			});
 		</script>
 
